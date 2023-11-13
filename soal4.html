@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soal Kondisional</title>
+    <style>
+      #hasil {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label for="golonganDarah">Masukkan Golongan Darah (A, B, AB, O):</label><br />
+      <br />
+      <input type="text" id="golonganDarah" required />
+      <button type="button" onclick="cekGolonganDarah()">Cek Golongan Darah</button>
+    </form>
+    <div id="hasil"></div>
+    <br />
+
+    <script>
+      function cekGolonganDarah() {
+        // Mengambil nilai dari input
+        var golonganDarah = document.getElementById("golonganDarah").value.toUpperCase();
+
+        // Menggunakan kondisional untuk menentukan pesan
+        var hasilElemen = document.getElementById("hasil");
+        switch (golonganDarah) {
+          case "A":
+            hasilElemen.textContent = "Identik dengan sifatnya yang terorganisir, kritis, tenang dalam menghadapi masalah.";
+            break;
+          case "B":
+            hasilElemen.textContent = "Semangat yang tinggi, aktif, kreatif dan selalu ingin tahu.";
+            break;
+          case "AB":
+            hasilElemen.textContent = "Memiliki karakter yang kritis, rasional, bertanggung jawab, suka menolong, dan mudah beradaptasi";
+            break;
+          case "O":
+            hasilElemen.textContent = "Sikapnya yang mudah beradaptasi dengan lingkungan baru atau easy-going";
+            break;
+          default:
+            hasilElemen.textContent = "Golongan darah yang dimasukkan tidak valid.";
+        }
+      }
+    </script>
+  </body>
+</html>

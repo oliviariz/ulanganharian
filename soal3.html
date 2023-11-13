@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soal Array</title>
+</head>
+<body>
+    
+    </body>
+    </html>
+    <h2>Data Negara</h2>
+    
+    <script>
+        // Membuat array negara
+        var negaraArray = ["Indonesia", "Malaysia", "Singapura", "Thailand", "Vietnam", "Filipina", "Brunei", "Myanmar", "Kamboja", "Laos"];
+    
+        // Menampilkan seluruh data negara
+        document.write("<p>Seluruh Data Negara:</p>");
+        document.write("<ul>");
+        for (var i = 0; i < negaraArray.length; i++) {
+            document.write("<li>" + negaraArray[i] + "</li>");
+        }
+        document.write("</ul>");
+    
+        // Mengakses nilai dari negara Indonesia dan menampilkan indeks
+        var indexIndonesia = negaraArray.indexOf("Indonesia");
+        document.write("<p>Indonesia terletak pada indeks ke-" + indexIndonesia + "</p>");
+    
+        // Menambahkan satu negara baru menggunakan push
+        var negaraBaru = "Mesir";
+        negaraArray.push(negaraBaru);
+    
+        // Menampilkan seluruh data negara setelah penambahan
+        document.write("<p>Seluruh Data Negara Setelah Penambahan:</p>");
+        document.write("<ul>");
+        for (var j = 0; j < negaraArray.length; j++) {
+            document.write("<li>" + negaraArray[j] + "</li>");
+        }
+        document.write("</ul>");
+    </script>
+    
+    </body>
+    </html>

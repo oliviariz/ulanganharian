@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Program Kasir</title>
+  </head>
+  <body>
+    <h2>Program Kasir</h2>
+
+    <form id="kasirForm">
+      <label for="kodeBarang">Kode Barang:</label>
+      <input type="text" id="kodeBarang" required /><br />
+      <br />
+
+      <label for="namaBarang">Nama Barang:</label>
+      <input type="text" id="namaBarang" required /><br />
+      <br />
+      <label for="hargaBarang">Harga Barang:</label>
+      <input type="number" id="hargaBarang" min="0" required /><br />
+      <br />
+
+      <label for="jumlahBarang">Jumlah Barang:</label>
+      <input type="number" id="jumlahBarang" min="1" required /><br />
+      <br />
+
+      <button type="button" onclick="tambahBarang()">Tambah Barang</button>
+    </form>
+
+    <hr />
+
+    <h3>Informasi Barang</h3>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Kode Barang</th>
+          <th>Nama Barang</th>
+          <th>Harga Barang</th>
+          <th>Jumlah Barang</th>
+          <th>Total Harga</th>
+        </tr>
+      </thead>
+      <tbody id="tabelBarang">
+        <!-- Informasi barang akan ditampilkan di sini -->
+      </tbody>
+    </table>
+
+    <h3>Total Belanja</h3>
+    <p id="totalBelanja">Total Belanja: 0</p>
+
+    <script>
+      var daftarBarang = [];
+
+      function tambahBarang() {
+        var kodeBarang = document.getElementById("kodeBarang").value;
+        var namaBarang = document.getElementById("namaBarang").value;
+        var hargaBarang = parseFloat(document.getElementById("hargaBarang").value);
+        var jumlahBarang = parseInt(document.getElementById("jumlahBarang").value);
+
+        var totalHarga = hargaBarang * jumlahBarang;
+
+        daftarBarang.push({
+          "Kode Barang": kodeBarang,
+          "Nama Barang": namaBarang,
+          "Harga Barang": hargaBarang,
+          "Jumlah Barang": jumlahBarang,
+          "Total Harga": totalHarga,
+        });
+
+        tampilkanInformasiBarang();
+        hitungTotalBelanja();
+        resetForm();
+      }
+
+      function tampilkanInformasiBarang() {
+        var tabelBarang = document.getElementById("tabelBarang");
+        tabelBarang.innerHTML = "";
+
+        daftarBarang.forEach(function (barang) {
+          var row = tabelBarang.insertRow();
+          row.insertCell(0).textContent = barang["Kode Barang"];
+          row.insertCell(1).textContent = barang["Nama Barang"];
+          row.insertCell(2).textContent = barang["Harga Barang"];
+          row.insertCell(3).textContent = barang["Jumlah Barang"];
+          row.insertCell(4).textContent = barang["Total Harga"];
+        });
+      }
+
+      function hitungTotalBelanja() {
+        var totalBelanja = daftarBarang.reduce(function (total, barang) {
+          return total + barang["Total Harga"];
+        }, 0);
+
+        document.getElementById("totalBelanja").textContent = "Total Belanja: " + totalBelanja;
+      }
+
+      function resetForm() {
+        document.getElementById("kodeBarang").value = "";
+        document.getElementById("namaBarang").value = "";
+        document.getElementById("hargaBarang").value = "";
+        document.getElementById("jumlahBarang").value = "";
+      }
+    </script>
+  </body>
+</html>

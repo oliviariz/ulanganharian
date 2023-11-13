@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Merubah Kalimat</title>
+    <style>
+      body {
+        background-color: white;
+        transition: background-color 0.5s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="kalimat" onclick="ubahKalimat()">Saya merasa belum bisa belajar JavaScript</p>
+
+    <script>
+      function ubahKalimat() {
+        var elemenKalimat = document.getElementById("kalimat");
+
+        // Memeriksa apakah kalimat sudah berubah
+        if (elemenKalimat.textContent === "Saya merasa belum bisa belajar JavaScript") {
+          elemenKalimat.textContent = "Ternyata saya masih kurang berlatih belajar JavaScript";
+          document.body.style.backgroundColor = "green"; // Mengubah warna background menjadi hijau
+        } else {
+          elemenKalimat.textContent = "Saya merasa belum bisa belajar JavaScript";
+          document.body.style.backgroundColor = "white"; // Mengembalikan warna background menjadi putih
+        }
+      }
+    </script>
+  </body>
+</html>
